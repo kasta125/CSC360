@@ -1,5 +1,5 @@
 {
-  "name": "week2",
+  "name": "node",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,5 +34,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kasta125/CSC360.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kasta125/CSC360/issues"
+  },
+  "homepage": "https://github.com/kasta125/CSC360#readme",
+  "description": ""
 }
