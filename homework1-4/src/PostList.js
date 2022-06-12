@@ -2,10 +2,13 @@ import React from "react";
 import Post from "./Post";
 
 export default function PostList({ posts = [], setPosts }) {
-  function updatePost(index, newPost){
+  function updatePost(id, newPost){
     const updatedState = [...posts]
-    updatedState[index] = newPost
+    updatedState[id] = newPost
 
+    const newPost = post.map((post) => post.id === id ? newPost : post)
+
+    dispatch({''})
     setPosts(updatedState)
   }
   

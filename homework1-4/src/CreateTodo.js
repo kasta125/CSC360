@@ -8,10 +8,10 @@ export default function CreateTodo({ user, setTodos, todos }) {
     function handleDescription (evt) { setDescription(evt.target.value) }
 
     function handleCreate (evt) {
-        const newTodo = { title, description, dateCreated: Date.now(), dateCompleted: null, complete: null }
+        //const newTodo = { title, description, dateCreated: Date.now(), dateCompleted: null, complete: null }
         //setTodos([newTodo, ...todos])
 
-        dispatchPost({type: 'CREATE_TODO', title, description, dateCreated: Date.now(), dateCompleted: null, complete: null})
+        dispatchTodo({type: 'CREATE_TODO', title, description, dateCreated: Date.now(), dateCompleted: undefined, complete: null, id: Math.floor(Math.random()*1000000), updateTodo, deleteTodo})
     }
   
     return (

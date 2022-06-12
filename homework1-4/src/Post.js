@@ -1,21 +1,20 @@
 import React from "react";
 
-export default function Post({ title, content, author, dateCreated, dateCompleted, completed }) {
-  
-  /*
-  function handleCheck(event){
+export default function Post({ title, content, author, dateCreated, dateCompleted, complete, id, updatePost, deletePost }) {
+  const handleCheckEvent = (event) => {
     const newPost = {
       title,
       content,
-      author,
       dateCreated,
       dateCompleted: Date.now(),
-      complete: event.target.checked
+      complete: event.target.checked,
+      id,
+      updatePost,
+      deletePost
     }
-    updatePost(id, newPost)
+    updatePost(id, {title, content, author, dateCreated, dateCompleted: Date.now(), complete: !complete, id, updatePost, deletePost})
   }
-  */
-  
+
   return (
     <div>
       <h3>{title}</h3>
@@ -30,7 +29,7 @@ export default function Post({ title, content, author, dateCreated, dateComplete
         Created On:  <b>{dateCreated}</b>
       <br/>
         Completed On:  <b>{dateCompleted}</b>
-      <input type="checkbox" value = {completed} onChange = {handleCheck}></input>
+      <input type="checkbox" value = {completed} onChange = {handleCheckEvent}></input>
     </div>
   );
 }

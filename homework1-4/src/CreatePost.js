@@ -1,18 +1,18 @@
 import React, {useState} from "react";
 
-export default function CreatePost({ user, setPosts, posts }) {
+export default function CreatePost({ user, dispatchPosts, posts }) {
   const [ title, setTitle ] = useState("")
   const [ content, setContent ] = useState("")
 
   function handleTitle (evt) { setTitle(evt.target.value) }
   function handleContent (evt) { setContent(evt.target.value) }
   function handleCreate (evt) {  
-    const newPost = { title, content, author: user, dateCreated: Date.now(), dateCompleted: null, complete: null }
+    //const newPost = { title, content, author: user, dateCreated: Date.now(), dateCompleted: null, complete: false }
     //console.log(newPost)
-    //const newPostCopy = { ...newPost }
+    // const newPostCopy = { ...newPost }
     //setPosts([newPost, ...posts])
 
-    dispatchPost({type: 'CREATE_POST', title, content, author: user})
+    dispatchPosts({type: 'CREATE_POST', title, content, author: user})
   }
 
   return (

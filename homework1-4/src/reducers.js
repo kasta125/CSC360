@@ -34,9 +34,14 @@ function todoReducer(state, action){
       const newTodo ={
         title: action.title,
         description: action.description,
+        dateC: action.dateCreated,
+        dateC: action.dateCompleted,
+        complete: action.complete,
+        id: action.id
       };
       return [newTodo, ...state];
     case "TOGGLE_TODO":
+      console.log('Hi im the reducer')
       return state.filer(todo => todo.id = action.id)
     case "DELETE_TODO":
       return state.filter(todo => todo.id != action.id)
