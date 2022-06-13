@@ -75,11 +75,11 @@ const Circle = class Circle {
  */
 
 const Student = class Student { 
-    firstname;
-    lastname;
+    firstname = '';
+    lastname = '';
     gpa = 0.0;
-    degreeType;
-    grade;
+    degreeType = '';
+    grade = undefined;
     graduation = false;
 
     constructor(firstname, lastname, gpa, degreeType){
@@ -105,9 +105,9 @@ const Student = class Student {
  */
 
 const Product = class Product {
-    name;
-    price;
-    availability;
+    name = '';
+    price = 0.00;
+    availability = '';
 
     constructor(name, price, availability){
         this.name = name;
@@ -143,8 +143,8 @@ const Product = class Product {
      * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array 
      */
     static halfOff = (products) => {
-        halvePrice = products.forEach(product => product.price = product.price/2);
-        console.log(halvePrice);
+        //halvePrice = products.forEach(product => product.price = product.price/2);
+        console.log(products.forEach(product => product.price = product.price/2));
     }
 
     /**
@@ -172,7 +172,15 @@ const Product = class Product {
         */
 
         console.log("Name: " + products.name + " Cost: " + new Intl.NumberFormat('de-DE', { style: 'currency', 
-        currency: 'USA' }).format(products.price) + " Available: " + products.inStock());
+        currency: 'USD' }).format(products.price) + " Available: " + products.forEach(myFunction(products.availability));
+
+        function myFunction(value){
+            if(value = 'In Stock'){
+                return "Yes"
+            } else if (value = 'Out Stock'){
+                return "No"
+            }
+        }
     }
 
  };

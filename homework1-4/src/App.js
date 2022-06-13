@@ -34,4 +34,6 @@ function App() {
   
 }
 
+export const ThemeContext = createContext({primary:'red'})
+
 export default App;

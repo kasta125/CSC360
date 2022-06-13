@@ -2,21 +2,32 @@ import React from "react";
 import Post from "./Post";
 
 export default function PostList({ posts = [], setPosts }) {
-  function updatePost(id, newPost){
-    const updatedState = [...posts]
-    updatedState[id] = newPost
+  const updatePost = (id, newPost) => {
+    //const updatedState = [...posts]
+    //updatedState[id] = newPost
 
-    const newPost = post.map((post) => post.id === id ? newPost : post)
+    const updatedPosts = post.map((post) => post.id === id ? updatedPosts : post)
 
-    dispatch({''})
-    setPosts(updatedState)
+    dispatch({type: 'TOGGLE_POST', updatedPosts})
+    //setPosts(updatedState)
+  }
+
+  const deletePost = (id) => {
+    posts.filter((post) => post.id !== id)
+    //const updatedState = [...posts]
+    //updatedState[id] = newPost
+
+    //const newPost = post.map((post) => post.id === id ? newPost : post)
+
+    dispatch({type: 'DELETE_POST', updatedPosts})
+    //setPosts(updatedState)
   }
   
   return (
     <div>
       {posts.map((p, i) => (
         // <Post title={p.title} content={p.content} author={p.author} key={"post-" + i} />
-        <Post {...p} updatedPost = {updatePost} index = {i}  key={"post-" + i} />
+        <Post {...p} index = {i}  key={"post-" + i} updatedPost = {updatePost} deletePost = {deletePost} />
       ))}
     </div>
   );

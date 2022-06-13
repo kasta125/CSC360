@@ -1,18 +1,38 @@
 import React from "react";
 
-export default function CreateTodo({ user, setTodos, todos }) {
-    const [ title, setTitle ] = useState("")
-    const [ description, setDescription ] = useState("")
-    
-    function handleTitle (evt) { setTitle(evt.target.value) }
-    function handleDescription (evt) { setDescription(evt.target.value) }
+export default function CreateTodo() { //{ user, dispatchTodos, todos }
+  const [ title, setTitle ] = useState("")
+  const [ content, setContent ] = useState("")
 
-    function handleCreate (evt) {
-        //const newTodo = { title, description, dateCreated: Date.now(), dateCompleted: null, complete: null }
-        //setTodos([newTodo, ...todos])
+  const navigation = useNavigation();
 
-        dispatchTodo({type: 'CREATE_TODO', title, description, dateCreated: Date.now(), dateCompleted: undefined, complete: null, id: Math.floor(Math.random()*1000000), updateTodo, deleteTodo})
+  const { state, dispatch } = useContext(StateContext);
+  const { user } = state;
+
+  function handleTitle (evt) { setTitle(evt.target.value) }
+  function handleContent (evt) { setContent(evt.target.value) }
+  
+  const [post, createPost] = useResource(({ title, content, author }) => ({
+    url: "/posts",
+    method: "post",
+    headers: { Authorization: `${state.user.access_token}` },
+    data: { title, content, author },
+  }));
+
+  useEffect(() => {
+    if (todo && todo.data && todo.isLoading === false) {
+      navigation.navigate(`/todo/${todo.data.id}`);
     }
+  }, [todo]);
+  
+  function handleCreate (evt) {  
+    //const newPost = { title, content, author: user, dateCreated: Date.now(), dateCompleted: null, complete: false }
+    //console.log(newPost)
+    // const newPostCopy = { ...newPost }
+    //setPosts([newPost, ...posts])
+    createPost({ title, content, author: user.username });
+    dispatchPosts({type: 'CREATE_TODO', title, description})
+  }
   
     return (
       <>
