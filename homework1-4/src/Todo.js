@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-navi'
 
 export default function Todo({ title, description, dateCreated, dateCompleted, complete, 
   id, 
@@ -31,7 +32,7 @@ export default function Todo({ title, description, dateCreated, dateCompleted, c
           <br />
           <i>
           <b> Created: {dateCreated}</b>
-          <inpus type = "checkbox" value={complete} onClick={handleCheckEvent}></input>
+          <input type = "checkbox" value={complete} onClick={handleCheckEvent}></input>
           <b> Status: {complete}</b>
           <b> Completed: {dateCompleted}</b>
           </i>

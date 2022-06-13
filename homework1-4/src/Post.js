@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-navi'
 
 export default function Post({ title, content, author, dateCreated, dateCompleted, complete, id, updatePost, deletePost }) {
   const handleCheckEvent = (event) => {
@@ -29,8 +30,8 @@ export default function Post({ title, content, author, dateCreated, dateComplete
         Created On:  <b>{dateCreated}</b>
       <br/>
         Completed On:  <b>{dateCompleted}</b>
-      <input type="checkbox" value = {completed} onClick = {handleCheckEvent}></input>
-      <input type="button" value = "Delete this Post" onClick = {() => deletePost(id))}></input>
+      <input type="checkbox" value = {completed} onClick = {handleCheckEvent}>Done</input>
+      <input type="button" value = "Delete this Post" onClick = {() => deletePost(id)}>Delete Post</input>
     </div>
   );
 }

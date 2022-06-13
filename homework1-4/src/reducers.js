@@ -34,11 +34,8 @@ function todoReducer(state, action){
       const newTodo ={
         title: action.title,
         description: action.description,
-        dateC: action.dateCreated,
-        dateC: action.dateCompleted,
-        complete: action.complete,
-        id: action.id
-      };
+        complete: action.complete
+      }
       return [newTodo, ...state];
     case "TOGGLE_TODO":
       console.log('Hi im the reducer')
