@@ -19,6 +19,18 @@ import TodoPage from "./pages/TodoPage";
 
 function App() {
 
+  const routes = mount({
+    '/': route({ view: <HomePage /> }),
+    '/post/create':route({ view: <CreatePost /> }),
+    '/post/:id': route(req => {
+        return { view: <PostPage id={req.params.id} /> }
+    }),
+    '/todo/create':route({ view: <CreateTodo /> }),
+    '/todo/:id': route(req => {
+        return { view: <TodoPage id={req.params.id} /> }
+    }),
+})
+
   const [user, setUser] = useReducer(useReducer, "")
   //const [user, setUser] = useState("");
   //const posts = [{title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}]
