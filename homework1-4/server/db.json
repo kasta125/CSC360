@@ -1,0 +1,57 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "TEST TEXT",
+      "content": "MORE content",
+      "author": "Kory"
+    },
+    {
+      "id": 2,
+      "title": "portal",
+      "content": "Some content"
+    },
+    {
+      "id": 3,
+      "title": "My new post",
+      "content": "Post content"
+    },
+    {
+      "id": "7774",
+      "title": "Post 7774",
+      "content": "Post content"
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "title": "Homework",
+      "description": "Must be done",
+      "complete": "True"
+    },
+    {
+      "id": 2,
+      "title": "Chores",
+      "description": "Grass, laundry, etc.",
+      "complete": "False"
+    },
+    {
+      "id": 3,
+      "title": "Job",
+      "content": "Go to work and do tasks",
+      "complete": "False"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Kory",
+      "password": "homework14"
+    },
+    {
+      "id": 2,
+      "username": "KASTA1",
+      "password": "rncakk1216"
+    }
+  ]
+}
