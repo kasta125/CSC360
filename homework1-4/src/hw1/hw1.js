@@ -171,8 +171,8 @@ const Product = class Product {
         }
         */
 
-        console.log("Name: " + products.name + " Cost: " + new Intl.NumberFormat('de-DE', { style: 'currency', 
-        currency: 'USD' }).format(products.price) + " Available: " + products.forEach(myFunction(products.availability));
+        console.log("Name: " + products.name + " Cost: " + new Intl.NumberFormat('en-IN', { style: 'currency', 
+        currency: 'USD' }).format(products.price) + " Available: " + products.forEach(myFunction(products.availability)));
 
         function myFunction(value){
             if(value = 'In Stock'){
